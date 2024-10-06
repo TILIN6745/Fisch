@@ -9,10 +9,7 @@ import chalk from 'chalk';
 import fs from 'fs'; 
 import './config.js';
 
-async function loadBaileys() {
-  const { PHONENUMBER_MCC } = await import('baileys');
-  return PHONENUMBER_MCC;
-}
+const { PHONENUMBER_MCC } = await import('baileys');
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const require = createRequire(__dirname);
 const { say } = cfonts;
@@ -58,13 +55,13 @@ async function start(file) {
   if (isRunning) return;
   isRunning = true;
 
-  say('MysticMOD', {
+  say('The Mystic\nBot', {
     font: 'chrome',
     align: 'center',
     gradient: ['red', 'magenta'],
   });
 
-  say(`Bot Comunitario\nGrupos de Ayuda: bit.ly/MSOS`, {
+  say(`Bot creado por Bruno Sobrino`, {
     font: 'console',
     align: 'center',
     gradient: ['red', 'magenta'],
@@ -79,14 +76,14 @@ async function start(file) {
     return;
   }
 
-  const opcion = await question(chalk.yellowBright.bold('—◉ㅤSeleccione con Numero:\n') + chalk.white.bold('1. Con codigo QR\n2. Con codigo de texto de 8 digitos\n—> '));
+  const opcion = await question(chalk.yellowBright.bold('—◉ㅤSeleccione una opción (solo el numero):\n') + chalk.white.bold('1. Con código QR\n2. Con código de texto de 8 dígitos\n—> '));
 
   let numeroTelefono = '';
   if (opcion === '2') {
-    const phoneNumber = await question(chalk.yellowBright.bold('\n—◉ㅤNumero del Bot:\n') + chalk.white.bold('◉ㅤEjemplo: 5219992095479\n—> '));
+    const phoneNumber = await question(chalk.yellowBright.bold('\n—◉ㅤEscriba su número de WhatsApp:\n') + chalk.white.bold('◉ㅤEjemplo: +5219992095479\n—> '));
     numeroTelefono = formatearNumeroTelefono(phoneNumber);
     if (!esNumeroValido(numeroTelefono)) {
-      console.log(chalk.bgRed(chalk.white.bold('[ ERROR ] Numero no Valido')));
+      console.log(chalk.bgRed(chalk.white.bold('[ ERROR ] Número inválido. Asegúrese de haber escrito su numero en formato internacional y haber comenzado con el código de país.\n—◉ㅤEjemplo:\n◉ +5219992095479\n')));
       process.exit(0);
     }
     process.argv.push(numeroTelefono);
@@ -117,17 +114,22 @@ async function start(file) {
     }
   });
 
-  p.on('exit', (code) => {
+  p.on('exit', (_, code) => {
     isRunning = false;
-    console.error(chalk.red.bold('[ ERROR ] Exit code:'), code);
-    if (!isRunning) {
-      start('main.js'); 
+    console.error(chalk.red.bold('[ ERROR ] Ocurrió un error inesperado:'), code);
+    p.process.kill();
+    isRunning = false;
+    start.apply(this, arguments);
+    if (process.env.pm_id) {
+      process.exit(1);
+    } else {
+      process.exit();
     }
   });
 
   const opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse());
   if (!opts['test']) {
-    if (rl.listenerCount('line') === 0) {
+    if (!rl.listenerCount()) {
       rl.on('line', (line) => {
         p.emit('message', line.trim());
       });
