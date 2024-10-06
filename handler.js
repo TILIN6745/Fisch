@@ -15,10 +15,8 @@ let mconn;
  */
 const { proto } = (await import("baileys")).default;
 const isNumber = (x) => typeof x === 'number' && !isNaN(x);
-const delay = (ms) => isNumber(ms) && new Promise((resolve) => setTimeout(function () {
-  clearTimeout(this);
-  resolve();
-}, ms));
+const delay = (ms) => isNumber(ms) && new Promise((resolve) => setTimeout(resolve, ms));
+
 
 /**
  * Handle messages upsert
@@ -56,10 +54,10 @@ export async function handler(chatUpdate) {
       const user = global.db.data.users[m.sender];
       /* Creditos a Otosaka (https://wa.me/51993966345) */
 
-      const chatgptUser = global.chatgpt.data.users[m.sender];
       if (typeof chatgptUser !== 'object') {
-        global.chatgpt.data.users[m.sender] = [];
+        global.chatgpt.data.users[m.sender] = {};
       }
+      
 
       /* ------------------------------------------------*/
       if (typeof user !== 'object') {
@@ -611,8 +609,8 @@ export async function handler(chatUpdate) {
       if (chat) {
         
       const chats = { // i want to assign dick instead chats
-          isBanned: false,
-          welcome: true,
+          isBanned: true,
+          welcome: false,
           detect: true,
           detect2: false,
           sWelcome: '',
@@ -620,9 +618,9 @@ export async function handler(chatUpdate) {
           sPromote: '',
           sDemote: '',
           antidelete: false,
-          modohorny: true,
+          modohorny: false,
           autosticker: false,
-          audios: true,
+          audios: false,
           antiLink: false,
           antiLink2: false,
           antiviewonce: false,
@@ -648,12 +646,12 @@ export async function handler(chatUpdate) {
       if (settings) {
        const setttings = { // yk the drill 
           self: false,
-          autoread: false,
+          autoread: true,
           autoread2: false,
           restrict: false,
           antiCall: false,
           antiPrivate: false,
-          modejadibot: true,
+          modejadibot: false,
           antispam: false,
           audios_bot: true,
           modoia: false

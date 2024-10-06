@@ -1,5 +1,5 @@
-/*              Codigo Creado Por Bruno Sobrino
-      (https://github.com/BrunoSobrino/TheMystic-Bot-MD)
+/*              Codigo Creado Por La Comunidad
+      (https://github.com/weskerty/TheMysticMOD)
 */
 
 

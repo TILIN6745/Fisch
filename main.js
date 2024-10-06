@@ -126,7 +126,6 @@ console.log('[ ❗ ] Por favor, seleccione solo 1 o 2.\n')
 }} while (opcion !== '1' && opcion !== '2' || fs.existsSync(`./${authFile}/creds.json`))
 }
 
-console.info = () => {} // https://github.com/skidy89/baileys actualmente no muestra logs molestos en la consola
 const connectionOptions = {
     logger: Pino({ level: 'silent' }),
     printQRInTerminal: opcion === '1' || methodCodeQR,
@@ -156,7 +155,7 @@ const connectionOptions = {
     defaultQueryTimeoutMs: undefined,
     cachedGroupMetadata: (jid) => global.conn.chats[jid] ?? {},
     version,
-    //userDeviceCache: msgRetryCounterCache <=== quien fue el pendejo?????
+    //userDeviceCache: msgRetryCounterCache 
 };
 
 global.conn = makeWASocket(connectionOptions);
@@ -211,23 +210,6 @@ if (!opts['test']) {
 if (opts['server']) (await import('./server.js')).default(global.conn, PORT);
 
 
-/* Y ese fue el momazo mas bueno del mundo
-        Aunque no dudara tan solo un segundo
-        Mas no me arrepiento de haberme reido
-        Por que la grasa es un sentimiento
-        Y ese fue el momazo mas bueno del mundo
-        Aunque no dudara tan solo un segundo
-        que me arrepiento de ser un grasoso
-        Por que la grasa es un sentimiento
-        - El waza 👻👻👻👻 (Aiden)            
-        
-   Yo tambien se hacer momazos Aiden...
-        ahi te va el ajuste de los borrados
-        inteligentes de las sesiones y de los sub-bot
-        By (Rey Endymion 👺👍🏼) 
-        
-   Ninguno es mejor que tilin god
-        - atte: sk1d             */
 
 function clearTmp() {
   const tmp = [join(__dirname, './src/tmp')];
@@ -259,12 +241,13 @@ fs.watch(dirToWatchccc, (eventType, filename) => {
   if (eventType === 'rename') {
     const filePath = path.join(dirToWatchccc, filename);
     fs.stat(filePath, (err, stats) => {
-      if (!err && stats.isFile()) {
+      if (!err && stats && stats.isFile()) {
         deleteCoreFiles(filePath);
       }
     });
   }
 });
+
 
 function purgeSession() {
 let prekey = []
@@ -405,8 +388,6 @@ global.reloadHandler = async function(restatConn) {
     conn.ev.off('creds.update', conn.credsUpdate);
   }
 
-  // Para cambiar estos mensajes, solo los archivos en la carpeta de language, 
-  // busque la clave "handler" dentro del json y cámbiela si es necesario
   conn.welcome = '👋 ¡Bienvenido/a!\n@user';
   conn.bye = '👋 ¡Hasta luego!\n@user';
   conn.spromote = '*[ ℹ️ ] @user Fue promovido a administrador.*';
@@ -519,21 +500,17 @@ setInterval(async () => {
   if (stopped === 'close' || !conn || !conn?.user) return;
   await clearTmp();
 }, 180000);
-/*
-setInterval(async () => {
-  if (stopped === 'close' || !conn || !conn?.user) return; //intervals at the same thime tho
-  await purgeSessionSB();
-  await purgeOldFiles();
-  await purgeSession();
-}, 1000 * 60 * 60);*/
+
 
 setInterval(async () => {
   if (stopped === 'close' || !conn || !conn?.user) return;
-  const _uptime = process.uptime() * 1000;
+  await clearTmp();
+  const _uptime = process.uptime() * 15000;
   const uptime = clockString(_uptime);
-  const bio = `[ ⏳ ] Uptime: ${uptime}`;
+  const bio = `⏳ ${uptime}`;
   await conn?.updateProfileStatus(bio).catch((_) => _);
-}, 60000);
+}, 150000); 
+
 function clockString(ms) {
   const d = isNaN(ms) ? '--' : Math.floor(ms / 86400000);
   const h = isNaN(ms) ? '--' : Math.floor(ms / 3600000) % 24;

@@ -54,7 +54,7 @@ const handler = async (m, {conn, args}) => {
            title: tradutor.texto1[0],
            body: '𝚃𝚑𝚎 𝙼𝚢𝚜𝚝𝚒𝚌 - 𝙱𝚘𝚝',
            previewType: 0, thumbnail: fs.readFileSync('./src/assets/images/menu/languages/es/menu.png'),
-           sourceUrl: `https://github.com/BrunoSobrino/TheMystic-Bot-MD`}
+           sourceUrl: `https://github.com/weskerty/TheMysticMOD`}
            }
         }
       );  
