@@ -95,26 +95,26 @@ async function systemInfoPlugin(m, extra) {
         getStorageInfo((storageInfo) => {
           getLinuxInfo((linuxInfo) => {
             let infoMessage = `> *📊 Información del Sistema*\n\n`;
-            infoMessage += `- 🌐 **Plataforma**: ${systemInfo.platform}\n`;
-            infoMessage += `- 💻 **Arquitectura CPU**: ${systemInfo.cpuArch}\n`;
-            infoMessage += `- 🧠 **Núcleos CPU**: ${systemInfo.cpus}\n`;
-            infoMessage += `- 🗄️ **Memoria Total**: ${systemInfo.totalMemory}\n`;
-            infoMessage += `- 🗃️ **Memoria Libre**: ${systemInfo.freeMemory}\n`;
-            infoMessage += `- ⏱️ **Tiempo de Actividad**: ${systemInfo.uptime}\n`;
-            infoMessage += `- 📀 **Versión del SO**: ${systemInfo.osVersion}\n`;
-            infoMessage += `- 📊 **Carga Promedio (1, 5, 15 min)**: ${systemInfo.loadAverage}\n`;
-            infoMessage += `- 🔋 **Energia**: ${batteryStatus}\n\n`;
+            infoMessage += `- 🌐 *Plataforma*: _${systemInfo.platform}_\n`;
+            infoMessage += `- 💻 *Arquitectura CPU*: ${systemInfo.cpuArch}\n`;
+            infoMessage += `- 🧠 *Núcleos CPU*: ${systemInfo.cpus}\n`;
+            infoMessage += `- 🗄️ *Memoria Total*: ${systemInfo.totalMemory}\n`;
+            infoMessage += `- 🗃️ *Memoria Libre*: ${systemInfo.freeMemory}\n`;
+            infoMessage += `- ⏱️ *Tiempo de Actividad*: ${systemInfo.uptime}\n`;
+            infoMessage += `- 📀 *Versión del SO*: ${systemInfo.osVersion}\n`;
+            infoMessage += `- 📊 *Carga Promedio (1, 5, 15 min)*: ${systemInfo.loadAverage}\n`;
+            infoMessage += `- 🔋 *Energia*: ${batteryStatus}\n\n`;
 
             infoMessage += `> *💾 Almacenamiento*\n`;
             infoMessage += `${storageInfo}\n\n`;
 
             infoMessage += `> *🛠️ Versiones de Herramientas*\n\n`;
-            infoMessage += `- ☕ **Node.js**: ${versions.nodeVersion.trim()}\n`;
-            infoMessage += `- 📦 **NPM**: ${versions.npmVersion.trim()}\n`;
-            infoMessage += `- 🎥 **FFmpeg**: ${versions.ffmpegVersion.split('\n')[0]}\n`; // Solo primera linea
-            infoMessage += `- 🐍 **Python**: ${versions.pythonVersion.trim()}\n`;
-            infoMessage += `- 📦 **PIP**: ${versions.pipVersion.trim()}\n`;
-            infoMessage += `- 🍫 **Chocolatey**: ${versions.chocoVersion.trim()}\n\n`;
+            infoMessage += `- ☕ *Node.js*: ${versions.nodeVersion.trim()}\n`;
+            infoMessage += `- 📦 *NPM*: ${versions.npmVersion.trim()}\n`;
+            infoMessage += `- 🎥 *FFmpeg*: ${versions.ffmpegVersion.split('\n')[0]}\n`; // Solo primera linea
+            infoMessage += `- 🐍 *Python*: ${versions.pythonVersion.trim()}\n`;
+            infoMessage += `- 📦 *PIP*: ${versions.pipVersion.trim()}\n`;
+            infoMessage += `- 🍫 *Chocolatey*: ${versions.chocoVersion.trim()}\n\n`;
 
             if (os.platform() === 'linux') {
               infoMessage += `> *🐧 Distribución Linux*\n${linuxInfo}\n`;
