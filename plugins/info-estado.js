@@ -1,17 +1,56 @@
-import { generateWAMessageFromContent } from "baileys";
-import os from "os";
-import util from "util";
-import sizeFormatter from "human-readable";
-import MessageType from "baileys";
-import fs from "fs";
-import { performance } from "perf_hooks";
+import os from 'os';
+import { exec } from 'child_process';
+import { generateWAMessageFromContent } from 'baileys';
+import fs from 'fs';
+import { performance } from 'perf_hooks';
 
-const handler = async (m, { conn, usedPrefix }) => {
-  const datas = global
-  const idioma = datas.db.data.users[m.sender].language || global.defaultLenguaje
-  const _translate = JSON.parse(fs.readFileSync(`./src/languages/${idioma}.json`))
-  const tradutor = _translate.plugins.info_estado
+function formatUptime(uptime) {
+  const seconds = Math.floor(uptime % 60);
+  const minutes = Math.floor((uptime / 60) % 60);
+  const hours = Math.floor((uptime / 3600) % 24);
+  return `${hours} horas, ${minutes} minutos, ${seconds} segundos`;
+}
 
+function getVersions(callback) {
+  exec('node -v', (err, nodeVersion) => {
+    if (err) nodeVersion = '✖️';
+    exec('npm -v', (err, npmVersion) => {
+      if (err) npmVersion = '✖️';
+      exec('ffmpeg -version', (err, ffmpegVersion) => {
+        if (err) ffmpegVersion = '✖️';
+        exec('python --version || python3 --version || py --version', (err, pythonVersion) => {
+          if (err) pythonVersion = '✖️';
+          exec('pip --version || pip3 --version', (err, pipVersion) => {
+            if (err) pipVersion = '✖️';
+            exec('choco -v', (err, chocoVersion) => {
+              if (err) chocoVersion = '✖️';
+              callback({ nodeVersion, npmVersion, ffmpegVersion, pythonVersion, pipVersion, chocoVersion });
+            });
+          });
+        });
+      });
+    });
+  });
+}
+
+async function getSystemInfo(callback) {
+  const systemInfo = {
+    platform: os.platform(),
+    cpuArch: os.arch(),
+    cpus: os.cpus().length,
+    totalMemory: (os.totalmem() / (1024 ** 3)).toFixed(2) + ' GB', // Total RAM en GB
+    freeMemory: (os.freemem() / (1024 ** 3)).toFixed(2) + ' GB',   // RAM libre en GB
+    uptime: formatUptime(os.uptime()),                             // Tiempo de actividad
+    osVersion: os.release(),                                       // Versión del SO
+    loadAverage: os.loadavg().map(load => load.toFixed(2)).join(', ') // Carga promedio
+  };
+
+  getVersions((versions) => {
+    callback(systemInfo, versions);
+  });
+}
+
+function getBotInfo(conn, m, callback) {
   const _uptime = process.uptime() * 1000;
   const uptime = clockString(_uptime);
   const totalusrReg = Object.values(global.db.data.users).filter((user) => user.registered == true).length;
@@ -19,82 +58,74 @@ const handler = async (m, { conn, usedPrefix }) => {
   const chats = Object.entries(conn.chats).filter(
     ([id, data]) => id && data.isChats,
   );
-  const groupsIn = chats.filter(([id]) => id.endsWith("@g.us"));
-  const groups = chats.filter(([id]) => id.endsWith("@g.us"));
+  const groups = chats.filter(([id]) => id.endsWith('@g.us'));
   const used = process.memoryUsage();
-  const { restrict, antiCall, antiprivado, modejadibot } =
-    global.db.data.settings[conn.user.jid] || {};
+  const { restrict, antiCall, antiprivado, modejadibot } = global.db.data.settings[conn.user.jid] || {};
   const { autoread, gconly, pconly, self } = global.opts || {};
+
   const old = performance.now();
   const neww = performance.now();
   const rtime = (neww - old).toFixed(7);
-  const wm = 'The Mystic Bot';
-  const info = ` ${tradutor.texto1[0]}
 
-  ${tradutor.texto1[1]} La Comunidad
-  ${tradutor.texto1[2]} +595972184435
-  ${tradutor.texto1[3]} paypal.me/BrunoSob
-
-  ${tradutor.texto1[4]} ${rtime}
-  ${tradutor.texto1[5]} ${uptime}
-  ${tradutor.texto1[6]} ${usedPrefix}
-  ${tradutor.texto1[7]} ${self ? "privado" : "público"}
-  ${tradutor.texto1[8]} ${totalusrReg}
-  ${tradutor.texto1[9]} ${totalusr}
-  ${tradutor.texto1[10]} ${(conn.user.jid == global.conn.user.jid ? '' : `Sub-bot de:\n ▢ +${global.conn.user.jid.split`@`[0]}`) || 'No es sub-bot'}
- 
-  ${tradutor.texto1[11]} ${chats.length - groups.length}
-  ${tradutor.texto1[12]} ${groups.length}
-  ${tradutor.texto1[13]} ${chats.length}
- 
-  ${tradutor.texto1[14]} ${autoread ? "activo" : "desactivado"}
-  ${tradutor.texto1[15]} ${restrict ? "activo" : "desactivado"}
-  ${tradutor.texto1[16]} ${pconly ? "activado" : "desactivado"}
-  ${tradutor.texto1[17]} ${gconly ? "activado" : "desactivado"}
-  ${tradutor.texto1[18]} ${antiprivado ? "activado" : "desactivado"}
-  ${tradutor.texto1[19]} ${antiCall ? "activado" : "desactivado"}
-  ${tradutor.texto1[20]} ${modejadibot ? "activado" : "desactivado"}`.trim();
-  const doc = [
-    "pdf",
-    "zip",
-    "vnd.openxmlformats-officedocument.presentationml.presentation",
-    "vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-    "vnd.openxmlformats-officedocument.wordprocessingml.document",
-  ];
-  const document = doc[Math.floor(Math.random() * doc.length)];
-  const Message = {
-    document: { url: `https://github.com/weskerty/TheMysticMOD` },
-    mimetype: `application/${document}`,
-    fileName: `Documento`,
-    fileLength: 200,
-    pageCount: 200,
-    contextInfo: {
-      forwardingScore: 200,
-      isForwarded: true,
-      externalAdReply: {
-        mediaUrl: "https://github.com/weskerty/TheMysticMOD",
-        mediaType: 2,
-        previewType: "pdf",
-        title: "The Mystic - Bot",
-        body: tradutor.texto2,
-        thumbnail: imagen1,
-        sourceUrl: "https://github.com/weskerty/TheMysticMOD",
-      },
-    },
-    caption: info,
-    footer: wm,
-    headerType: 6,
+  const botInfo = {
+    uptime,
+    totalusrReg,
+    totalusr,
+    groupsCount: groups.length,
+    chatsCount: chats.length,
+    rtime,
+    autoread,
+    restrict,
+    pconly,
+    gconly,
+    antiprivado,
+    antiCall,
+    modejadibot
   };
-  conn.sendMessage(m.chat, Message, { quoted: m });
-};
 
-handler.command = /^(ping|info|status|estado|infobot)$/i;
-export default handler;
+  callback(botInfo);
+}
+
+const handler = async (m, { conn }) => {
+  getSystemInfo((systemInfo, versions) => {
+    getBotInfo(conn, m, (botInfo) => {
+      let infoMessage = `> *📊 Información del Sistema*\n\n`;
+      infoMessage += `- 🌐 *Plataforma*: _${systemInfo.platform}_\n`;
+      infoMessage += `- 💻 *Arquitectura CPU*: ${systemInfo.cpuArch}\n`;
+      infoMessage += `- 🧠 *Núcleos CPU*: ${systemInfo.cpus}\n`;
+      infoMessage += `- 🗄️ *Memoria Total*: ${systemInfo.totalMemory}\n`;
+      infoMessage += `- 🗃️ *Memoria Libre*: ${systemInfo.freeMemory}\n`;
+      infoMessage += `- ⏱️ *Tiempo de Actividad*: ${systemInfo.uptime}\n`;
+      infoMessage += `- 📀 *Versión del SO*: ${systemInfo.osVersion}\n`;
+      infoMessage += `- 📊 *Carga Promedio (1, 5, 15 min)*: ${systemInfo.loadAverage}\n\n`;
+
+      infoMessage += `> *💻 Información del Bot*\n\n`;
+      infoMessage += `- ⏲️ *Uptime*: ${botInfo.uptime}\n`;
+      infoMessage += `- 👥 *Usuarios Registrados*: ${botInfo.totalusrReg}\n`;
+      infoMessage += `- 👤 *Usuarios Totales*: ${botInfo.totalusr}\n`;
+      infoMessage += `- 🏘️ *Grupos*: ${botInfo.groupsCount}\n`;
+      infoMessage += `- 📨 *Chats*: ${botInfo.chatsCount}\n`;
+      infoMessage += `- ⏱️ *Tiempo de Respuesta*: ${botInfo.rtime} ms\n\n`;
+
+      infoMessage += `> *🛠️ Versiones de Herramientas*\n\n`;
+      infoMessage += `- ☕ *Node.js*: ${versions.nodeVersion.trim()}\n`;
+      infoMessage += `- 📦 *NPM*: ${versions.npmVersion.trim()}\n`;
+      infoMessage += `- 🎥 *FFmpeg*: ${versions.ffmpegVersion.split('\n')[0]}\n`; // Solo primera linea
+      infoMessage += `- 🐍 *Python*: ${versions.pythonVersion.trim()}\n`;
+      infoMessage += `- 📦 *PIP*: ${versions.pipVersion.trim()}\n`;
+      infoMessage += `- 🍫 *Chocolatey*: ${versions.chocoVersion.trim()}\n`;
+
+      conn.sendMessage(m.chat, { text: infoMessage });
+    });
+  });
+};
 
 function clockString(ms) {
   const h = Math.floor(ms / 3600000);
   const m = Math.floor(ms / 60000) % 60;
   const s = Math.floor(ms / 1000) % 60;
-  console.log({ ms, h, m, s });
-  return [h, m, s].map((v) => v.toString().padStart(2, 0)).join(":");
+  return [h, m, s].map((v) => v.toString().padStart(2, 0)).join(':');
 }
+
+handler.command = /^(info|sysinfo)$/i;
+export default handler;
