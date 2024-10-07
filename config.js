@@ -26,12 +26,12 @@ global.prems = ['51995386439'];
 // API
 global.BASE_API_DELIRIUS = "https://deliriusapi-official.vercel.app";
 
-global.packname = 'Sticker';
-global.author = 'The Mystic - Bot';
-global.wm = 'The Mystic - Bot';
-global.titulowm = 'The Mystic - Bot';
-global.titulowm2 = `The Mystic - Bot`
-global.igfg = 'The Mystic - Bot';
+global.packname = '';
+global.author = 'MysticMOD';
+global.wm = 'MysticMOD';
+global.titulowm = 'MysticMOD';
+global.titulowm2 = `MysticMOD`
+global.igfg = 'MysticMOD';
 global.wait = '*_[ ⏳ ] Cargando..._*';
 
 /*global.imagen1 = fs.createReadStream('./src/assets/images/menu/languages/es/menu.png');
@@ -57,9 +57,9 @@ global.mes = d.toLocaleDateString('es', {month: 'long'});
 global.año = d.toLocaleDateString('es', {year: 'numeric'});
 global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true});
 //* ****************************
-global.wm2 = `${dia} ${fecha}\nThe Mystic - Bot`;
-global.gt = 'The Mystic - Bot';
-global.mysticbot = 'The Mystic - Bot';
+global.wm2 = `${dia} ${fecha}\nMysticMOD`;
+global.gt = 'MysticMOD';
+global.mysticbot = 'MysticMOD';
 global.channel = 'https://whatsapp.com/channel/0029Vaein6eInlqIsCXpDs3y';
 global.md = 'https://github.com/weskerty/TheMysticMOD';
 global.mysticbot = 'https://github.com/weskerty/TheMysticMOD';
@@ -81,8 +81,8 @@ global.htki = '*⭑•̩̩͙⊱•••• ☪*';
 global.htka = '*☪ ••••̩̩͙⊰•⭑*';
 global.comienzo = '• • ◕◕════';
 global.fin = '════◕◕ • •';
-global.botdate = `*[ 📅 ] Fecha:*  ${moment.tz('America/Mexico_City').format('DD/MM/YY')}`;
-global.bottime = `*[ ⏳ ] Hora:* ${moment.tz('America/Mexico_City').format('HH:mm:ss')}`;
+global.botdate = `*[ 📅 ] Fecha:*  ${moment.tz('America/Asuncion').format('DD/MM/YY')}`;
+global.bottime = `*[ ⏳ ] Hora:* ${moment.tz('America/Asuncion').format('HH:mm:ss')}`;
 global.fgif = {key: {participant: '0@s.whatsapp.net'}, message: {'videoMessage': {'title': wm, 'h': `Hmm`, 'seconds': '999999999', 'gifPlayback': 'true', 'caption': bottime, 'jpegThumbnail': fs.readFileSync('./src/assets/images/menu/languages/es/menu.png')}}};
 global.multiplier = 99;
 global.flaaa = [

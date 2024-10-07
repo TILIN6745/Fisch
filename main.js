@@ -237,7 +237,7 @@ function deleteCoreFiles(filePath) {
     });
   }
 }
-fs.watch(dirToWatchccc, (eventType, filename) => {
+const watcher = fs.watch(dirToWatchccc, (eventType, filename) => {
   if (eventType === 'rename') {
     const filePath = path.join(dirToWatchccc, filename);
     fs.stat(filePath, (err, stats) => {
@@ -247,6 +247,8 @@ fs.watch(dirToWatchccc, (eventType, filename) => {
     });
   }
 });
+watcher.setMaxListeners(10); 
+
 
 
 function purgeSession() {
@@ -328,7 +330,7 @@ process.send('reset')}
 if (connection === 'close') {
     if (reason === DisconnectReason.badSession) {
         conn.logger.error(`[ ⚠ ] Sesión incorrecta, por favor elimina la carpeta ${global.authFile} y escanea nuevamente.`);
-        //process.exit();
+        process.exit();
     } else if (reason === DisconnectReason.connectionClosed) {
         conn.logger.warn(`[ ⚠ ] Conexión cerrada, reconectando...`);
         await global.reloadHandler(true).catch(console.error);
@@ -337,10 +339,10 @@ if (connection === 'close') {
         await global.reloadHandler(true).catch(console.error);
     } else if (reason === DisconnectReason.connectionReplaced) {
         conn.logger.error(`[ ⚠ ] Conexión reemplazada, se ha abierto otra nueva sesión. Por favor, cierra la sesión actual primero.`);
-        //process.exit();
+        process.exit();
     } else if (reason === DisconnectReason.loggedOut) {
         conn.logger.error(`[ ⚠ ] Conexion cerrada, por favor elimina la carpeta ${global.authFile} y escanea nuevamente.`);
-        //process.exit();
+        process.exit();
     } else if (reason === DisconnectReason.restartRequired) {
         conn.logger.info(`[ ⚠ ] Reinicio necesario, reinicie el servidor si presenta algún problema.`);
         await global.reloadHandler(true).catch(console.error);
@@ -505,7 +507,7 @@ setInterval(async () => {
 setInterval(async () => {
   if (stopped === 'close' || !conn || !conn?.user) return;
   await clearTmp();
-  const _uptime = process.uptime() * 15000;
+  const _uptime = process.uptime() * 1000;
   const uptime = clockString(_uptime);
   const bio = `⏳ ${uptime}`;
   await conn?.updateProfileStatus(bio).catch((_) => _);
