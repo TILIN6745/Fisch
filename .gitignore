@@ -10,7 +10,7 @@ package-lock.json
 src/glx/db/database.json
 datasecret
 database.json
-
+src/allowlink.txt
 # Logs
 logs
 *.log
