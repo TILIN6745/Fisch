@@ -9,7 +9,7 @@ const handler = async (m, { conn, isROwner, text }) => {
   if (!process.send) throw tradutor.texto1;
   // conn.readMessages([m.key])
   await m.reply(tradutor.texto2);
-  process.send('reset');
+  process.exit();;
 };
 handler.help = ['restart'];
 handler.tags = ['owner'];
