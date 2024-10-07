@@ -55,13 +55,13 @@ async function start(file) {
   if (isRunning) return;
   isRunning = true;
 
-  say('The Mystic\nBot', {
+  say('MysticMOD', {
     font: 'chrome',
     align: 'center',
     gradient: ['red', 'magenta'],
   });
 
-  say(`Bot creado por Bruno Sobrino`, {
+  say(`Bot Comunitario\nGrupos de Ayuda en bit.ly/MSOS`, {
     font: 'console',
     align: 'center',
     gradient: ['red', 'magenta'],
@@ -101,40 +101,31 @@ async function start(file) {
   const p = fork();
 
   p.on('message', (data) => {
-    console.log(chalk.green.bold('—◉ㅤRECIBIDO:'), data);
-    switch (data) {
-      case 'reset':
-        p.process.kill();
-        isRunning = false;
-        start.apply(this, arguments);
-        break;
-      case 'uptime':
-        p.send(process.uptime());
-        break;
+    if (data === 'reset' && !isRunning) {
+      p.process.kill();
+      isRunning = false;
+      start.apply(this, arguments);
     }
   });
+  
 
   p.on('exit', (_, code) => {
     isRunning = false;
     console.error(chalk.red.bold('[ ERROR ] Ocurrió un error inesperado:'), code);
-    p.process.kill();
+    if (p.process) {
+      p.process.kill();
+    }
     isRunning = false;
     start.apply(this, arguments);
-    if (process.env.pm_id) {
-      process.exit(1);
-    } else {
-      process.exit();
-    }
   });
+  
 
   const opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse());
-  if (!opts['test']) {
-    if (!rl.listenerCount()) {
-      rl.on('line', (line) => {
-        p.emit('message', line.trim());
-      });
-    }
-  }
+  if (rl.listenerCount('line') === 0) {
+    rl.on('line', (line) => {
+      p.emit('message', line.trim());
+    });
+  }  
 }
 
 start('main.js');
