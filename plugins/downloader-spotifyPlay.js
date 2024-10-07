@@ -89,5 +89,5 @@ for (let i = 0; i < tracks.length; i++) {
     throw tradutor.texto7;
   }
 };
-handler.command = /^(spotifydl|spotifypro)$/i;
+handler.command = /^(spotify|play)$/i;
 export default handler;
