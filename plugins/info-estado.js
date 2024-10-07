@@ -65,7 +65,7 @@ function getBotInfo(conn, m, callback) {
 
   const old = performance.now();
   const neww = performance.now();
-  const rtime = (neww - old).toFixed(7);
+  const rtime = (neww - old).toFixed(3);
 
   const botInfo = {
     uptime,
@@ -127,5 +127,5 @@ function clockString(ms) {
   return [h, m, s].map((v) => v.toString().padStart(2, 0)).join(':');
 }
 
-handler.command = /^(info|sysinfo)$/i;
+handler.command = /^(host|sysinfo)$/i;
 export default handler;
