@@ -55,13 +55,13 @@ async function start(file) {
   if (isRunning) return;
   isRunning = true;
 
-  say('The Mystic\nBot', {
+  say('MysticMOD', {
     font: 'chrome',
     align: 'center',
     gradient: ['red', 'magenta'],
   });
 
-  say(`Bot creado por Bruno Sobrino`, {
+  say(`Bot Comunitario\nGrupos de Ayuda en bit.ly/MSOS`, {
     font: 'console',
     align: 'center',
     gradient: ['red', 'magenta'],
