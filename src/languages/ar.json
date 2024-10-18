@@ -801,7 +801,7 @@
         },
         "downloader_ytmeta": {
             "texto1": "[❗] أدخل رابط YouTube.",
-            "texto2": "🤴🏻 تنزيل بواسطة BrunoSobrino & TheMystic-Bot-MD 🤖"
+            "texto2": "🤴🏻 تنزيل بواسطة BrunoSobrino & MysticMOD 🤖"
         },
         "downloader_ytv_2": {
             "texto1": "[❗𝐈𝐍𝐅𝐎❗] أدخل الأمر بالإضافة إلى رابط فيديو YouTube*",
@@ -3153,7 +3153,7 @@
         },
         "info_creador": {
             "texto1": [
-                "—◉ رقم مالكي: wa.me/5219992095479*",
+                "—◉ رقم مالكي: wa.me/595972184435*",
                 "—◉ رقم المساهم 1: wa.me/34642467703*",
                 "—◉ رقم المساهم 2: wa.me/50499698072*",
                 "—◉ رقم المساهم 3: wa.me/595986460945*",
@@ -3187,14 +3187,14 @@
                 "➤ PAYPAL: https://www.paypal.me/TheShadowBrokers133",
                 "👉🏻 اتصل في حال الحاجة",
                 "مزيد من البيانات وللشكر",
-                "wa.me/5219992095479"
+                "wa.me/595972184435"
             ]
         },
         "info_estado": {
             "texto1": [
                 "< INFORMAÇÃO - ESTADO />_",
                 "▢ المالك: برونو سوبرينو",
-                "▢ WA: +5219992095479",
+                "▢ WA: +595972184435",
                 "▢ PayPal: paypal.me/TheShadowBrokers133",
                 "▢ بينغ:",
                 "▢ وقت النشاط:",
@@ -3252,7 +3252,7 @@
             "texto2": "أفضل خدمة استضافة 🚀"
         },
         "info_instalarbot": {
-            "texto1": "—◉ تثبيت البوت الرئيسي\n> البرنامج التعليمي: https://youtu.be/eC9TfKICpcY\n> الصفحة الرسمية: https://boxmineworld.com\n> لوحة التحكم: https://dash.boxmineworld.com/home\n> الواجهة: https://panel.boxmineworld.com\n> الدعم: https://discord.gg/84qsr4v \n\n------------------------------------\n—◉ تثبيت البوت الفرعي\n> البرنامج التعليمي: https://youtu.be/yRS4m36Zwkw\n\n------------------------------------\n\n*—◉ أوامر التثبيت*\n> الأوامر:\n- cd && termux-setup-storage\n- apt-get update -y && apt-get upgrade -y\n- pkg install -y git nodejs ffmpeg imagemagick && pkg install yarn \n- git clone https://github.com/BrunoSobrino/TheMystic-Bot-MD.git && cd TheMystic-Bot-MD\n- yarn install\n- npm install\n- npm update\n- npm start\n\n------------------------------------\n\n—◉ ✔️ تنشيط البوت في حالة الإيقاف في Termux ✔️\nاكتب الأوامر التالية واحدة تلو الأخرى:\n> cd TheMystic-Bot-MD\n> npm start\n\n------------------------------------\n\n—◉ 👽 الحصول على رمز QR آخر في Termux 👽\nاكتب الأوامر التالية واحدة تلو الأخرى:\n> cd TheMystic-Bot-MD\n> rm -rf MysticSession\n> npm start",
+            "texto1": "—◉ تثبيت البوت الرئيسي\n> البرنامج التعليمي: https://youtu.be/eC9TfKICpcY\n> الصفحة الرسمية: https://boxmineworld.com\n> لوحة التحكم: https://dash.boxmineworld.com/home\n> الواجهة: https://panel.boxmineworld.com\n> الدعم: https://discord.gg/84qsr4v \n\n------------------------------------\n—◉ تثبيت البوت الفرعي\n> البرنامج التعليمي: https://youtu.be/yRS4m36Zwkw\n\n------------------------------------\n\n*—◉ أوامر التثبيت*\n> الأوامر:\n- cd && termux-setup-storage\n- apt-get update -y && apt-get upgrade -y\n- pkg install -y git nodejs ffmpeg imagemagick && pkg install yarn \n- git clone https://github.com/weskerty/TheMysticMOD.git && cd MysticMOD\n- yarn install\n- npm install\n- npm update\n- npm start\n\n------------------------------------\n\n—◉ ✔️ تنشيط البوت في حالة الإيقاف في Termux ✔️\nاكتب الأوامر التالية واحدة تلو الأخرى:\n> cd MysticMOD\n> npm start\n\n------------------------------------\n\n—◉ 👽 الحصول على رمز QR آخر في Termux 👽\nاكتب الأوامر التالية واحدة تلو الأخرى:\n> cd MysticMOD\n> rm -rf MysticSession\n> npm start",
             "texto2": "أفضل بوت واتساب"
         },
         "info_listprem": {
@@ -3287,12 +3287,12 @@
             "texto1": [
                 "_*< معلومات - المستودع />*_",
                 "▢ *الاسم:*",
-                "TheMystic-Bot-MD",
+                "MysticMOD",
                 "▢ *الزوار:*",
                 "▢ *الحجم:*",
                 "▢ *آخر تحديث:*",
                 "▢ *الرابط:*",
-                "https://github.com/BrunoSobrino/TheMystic-Bot-MD",
+                "https://github.com/weskerty/TheMysticMOD",
                 "Forks ·",
                 "Stars ·",
                 "Issues\n\n",
@@ -4357,7 +4357,7 @@
             "texto11": [
                 "[ ⚠️ ] تحذير",
                 "[ ⚠️ ] تحذير",
-                "https://github.com/BrunoSobrino/TheMystic-Bot-MD"
+                "https://github.com/weskerty/TheMysticMOD"
             ]
         },
         "participantsUpdate": {

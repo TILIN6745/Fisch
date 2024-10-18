@@ -802,7 +802,7 @@
         },
         "downloader_ytmeta": {
             "texto1": "*[❗] Insira um link do YouTube.*",
-            "texto2": "🤴🏻 Download por BrunoSobrino & TheMystic-Bot-MD 🤖"
+            "texto2": "🤴🏻 Download por BrunoSobrino & MysticMOD 🤖"
         },
         "downloader_ytv_2": {
             "texto1": "*[❗𝐈𝐍𝐅𝐎❗] Insira o comando mais o link do vídeo do YouTube*",
@@ -2625,7 +2625,7 @@
         },
         "info_creador": {
             "texto1": [
-                "*—◉ O número do meu criador é wa.me/5219992095479*",
+                "*—◉ O número do meu criador é wa.me/595972184435*",
                 "*—◉ O número do colaborador 1 é wa.me/34642467703*",
                 "*—◉ O número do colaborador 2 é wa.me/50499698072*",
                 "*—◉ O número do colaborador 3 é wa.me/595986460945*",
@@ -2659,14 +2659,14 @@
                 "➤ PAYPAL: https://www.paypal.me/TheShadowBrokers133",
                 "👉🏻 ENTRE EM CONTATO CASO NECESSÁRIO",
                 "MAIS DADOS E PARA AGRADECER",
-                "wa.me/5219992095479"
+                "wa.me/595972184435"
             ]
         },
         "info_estado": {
             "texto1": [
                 "*< INFORMAÇÃO - ESTADO />*_",
                 "▢ *Prop.:* Bruno Sobrino",
-                "▢ *WA:* +5219992095479",
+                "▢ *WA:* +595972184435",
                 "▢ *PayPal:* paypal.me/TheShadowBrokers133",
                 "▢ *Ping:*",
                 "▢ *Tempo de atividade:*",
@@ -2724,7 +2724,7 @@
             "texto2": "O Melhor Hospedagem 🚀"
         },
         "info_instalarbot": {
-            "texto1": "*—◉ INSTALAÇÃO DO BOT PRINCIPAL*\n> Tutorial: https://youtu.be/eC9TfKICpcY\n> Página Oficial: https://boxmineworld.com\n> Painel de Controle: https://dash.boxmineworld.com/home\n> Painel: https://panel.boxmineworld.com\n> Suporte: https://discord.gg/84qsr4v \n\n------------------------------------\n—◉ INSTALAÇÃO DO BOT TERCIÁRIO\n> Tutorial: https://youtu.be/yRS4m36Zwkw\n\n------------------------------------\n\n*—◉ COMANDOS DE INSTALAÇÃO*\n> Comandos:\n- cd && termux-setup-storage\n- apt-get update -y && apt-get upgrade -y\n- pkg install -y git nodejs ffmpeg imagemagick && pkg install yarn \n- git clone https://github.com/BrunoSobrino/TheMystic-Bot-MD.git && cd TheMystic-Bot-MD\n- yarn install\n- npm install\n- npm update\n- npm start\n\n------------------------------------\n\n—◉ ✔️ ATIVAÇÃO EM CASO DE PARADA NO TERMUX ✔️\nDIGITE OS SEGUINTES COMANDOS UM POR UM:\n> cd TheMystic-Bot-MD\n> npm start\n\n------------------------------------\n\n—◉ 👽 OBTENHA OUTRO CÓDIGO QR NO TERMUX 👽\nDIGITE OS SEGUINTES COMANDOS UM POR UM:\n> cd TheMystic-Bot-MD\n> rm -rf MysticSession\n> npm start",
+            "texto1": "*—◉ INSTALAÇÃO DO BOT PRINCIPAL*\n> Tutorial: https://youtu.be/eC9TfKICpcY\n> Página Oficial: https://boxmineworld.com\n> Painel de Controle: https://dash.boxmineworld.com/home\n> Painel: https://panel.boxmineworld.com\n> Suporte: https://discord.gg/84qsr4v \n\n------------------------------------\n—◉ INSTALAÇÃO DO BOT TERCIÁRIO\n> Tutorial: https://youtu.be/yRS4m36Zwkw\n\n------------------------------------\n\n*—◉ COMANDOS DE INSTALAÇÃO*\n> Comandos:\n- cd && termux-setup-storage\n- apt-get update -y && apt-get upgrade -y\n- pkg install -y git nodejs ffmpeg imagemagick && pkg install yarn \n- git clone https://github.com/weskerty/TheMysticMOD.git && cd MysticMOD\n- yarn install\n- npm install\n- npm update\n- npm start\n\n------------------------------------\n\n—◉ ✔️ ATIVAÇÃO EM CASO DE PARADA NO TERMUX ✔️\nDIGITE OS SEGUINTES COMANDOS UM POR UM:\n> cd MysticMOD\n> npm start\n\n------------------------------------\n\n—◉ 👽 OBTENHA OUTRO CÓDIGO QR NO TERMUX 👽\nDIGITE OS SEGUINTES COMANDOS UM POR UM:\n> cd MysticMOD\n> rm -rf MysticSession\n> npm start",
             "texto2": "O Melhor Bot do WhatsApp"
         },
         "info_listprem": {
@@ -2759,12 +2759,12 @@
             "texto1": [
                 "_*< INFORMAÇÕES - REPOSITÓRIO />*_",
                 "▢ *Nome:*",
-                "TheMystic-Bot-MD",
+                "MysticMOD",
                 "▢ *Visitantes:*",
                 "▢ *Tamanho:*",
                 "▢ *Última atualização:*",
                 "▢ *URL:*",
-                "https://github.com/BrunoSobrino/TheMystic-Bot-MD",
+                "https://github.com/weskerty/TheMysticMOD",
                 "Forks ·",
                 "Stars ·",
                 "Issues\n\n",
@@ -3829,7 +3829,7 @@
             "texto11": [
                 "[ ⚠️ ] Aviso",
                 "[ ⚠️ ] Aviso",
-                "https://github.com/BrunoSobrino/TheMystic-Bot-MD"
+                "https://github.com/weskerty/TheMysticMOD"
             ]
         },
         "participantsUpdate": {
