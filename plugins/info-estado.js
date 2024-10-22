@@ -28,12 +28,8 @@ const handler = async (m, { conn, usedPrefix }) => {
   const old = performance.now();
   const neww = performance.now();
   const rtime = (neww - old).toFixed(7);
-  const wm = 'The Mystic Bot';
+  const wm = 'MysticMOD';
   const info = ` ${tradutor.texto1[0]}
-
-  ${tradutor.texto1[1]} Bruno Sobrino
-  ${tradutor.texto1[2]} +595972184435
-  ${tradutor.texto1[3]} paypal.me/BrunoSob
 
   ${tradutor.texto1[4]} ${rtime}
   ${tradutor.texto1[5]} ${uptime}
@@ -66,7 +62,7 @@ const handler = async (m, { conn, usedPrefix }) => {
     document: { url: `https://github.com/weskerty/TheMysticMOD` },
     mimetype: `application/${document}`,
     fileName: `Documento`,
-    fileLength: 6629,
+    fileLength: 999,
     pageCount: 200,
     contextInfo: {
       forwardingScore: 200,

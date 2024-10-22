@@ -1,4 +1,4 @@
-/*              Codigo Creado Por Bruno Sobrino
+/*              Codigo Creado Por La Comunidad
       (https://github.com/weskerty/TheMysticMOD)
 */
 

@@ -24,7 +24,7 @@ const handler = async (m, {conn, args}) => {
                 message: {
                     interactiveMessage: {
                         body: { text: 'https://chat.whatsapp.com/' + await conn.groupInviteCode(m.chat) },
-                        footer: { text: `${global.wm}`.trim() },
+                        footer: { text: `${global.author}`.trim() },
                         header: {
                             hasMediaAttachment: true,
                             imageMessage: messa.imageMessage,

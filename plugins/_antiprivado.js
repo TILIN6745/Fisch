@@ -1,4 +1,4 @@
-// MysticMOD@BrunoSobrino - _antiprivado.js
+// TheMystic-Bot-MD@BrunoSobrino - _antiprivado.js
 
 export async function before(m, {conn, isAdmin, isBotAdmin, isOwner, isROwner}) {
     const datas = global

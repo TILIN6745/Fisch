@@ -16,7 +16,7 @@ let handler = async (message, { conn, text }) => {
         let videoMessages = await Promise.all(selectedResults.map(result => createVideoMessage(result.videoUrl, conn)));
         let results = videoMessages.map((videoMessage, index) => ({
             body: proto.Message.InteractiveMessage.Body.fromObject({ text: '' }),
-            footer: proto.Message.InteractiveMessage.Footer.fromObject({ text: `*❧ By ${global.wm}*` }),
+            footer: proto.Message.InteractiveMessage.Footer.fromObject({ text: `*❧ By ${global.author}*` }),
             header: proto.Message.InteractiveMessage.Header.fromObject({
                 title: selectedResults[index].description, hasMediaAttachment: true, videoMessage: videoMessage
             }),
