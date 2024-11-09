@@ -55,7 +55,7 @@ async function start(file) {
   if (isRunning) return;
   isRunning = true;
 
-  say('MysticMOD', {
+  say('FISH BOT', {
     font: 'chrome',
     align: 'center',
     gradient: ['red', 'magenta'],
