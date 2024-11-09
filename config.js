@@ -16,22 +16,22 @@ global.isBaileysFail = false
 global.defaultLenguaje = 'es';
 
 global.owner = [
-  ['595972184435', '👑 Mystic - Creador 👑', true],
-  ['595991190555']
+  ['5215516497391', '👑 TILIN - Creador 👑', true],
+  ['5218336105471']
 ];
 
-global.suittag = ['595972184435'];
-global.prems = ['595972184435'];
+global.suittag = ['5215516497391'];
+global.prems = ['5215516497391'];
 
 // API
 global.BASE_API_DELIRIUS = "https://deliriussapi-oficial.vercel.app";
 
-global.packname = '';
-global.author = 'MysticMOD';
-global.wm = 'MysticMOD';
-global.titulowm = 'MysticMOD';
-global.titulowm2 = `MysticMOD`
-global.igfg = 'MysticMOD';
+global.packname = 'TILIN';
+global.author = 'FISH BOT';
+global.wm = 'FISH BOT';
+global.titulowm = 'FISH BOT';
+global.titulowm2 = `FISH BOT`
+global.igfg = 'FISH BOT';
 global.wait = '*_[ ⏳ ] Cargando..._*';
 
 /*global.imagen1 = fs.createReadStream('./src/assets/images/menu/languages/es/menu.png');
@@ -57,10 +57,10 @@ global.mes = d.toLocaleDateString('es', {month: 'long'});
 global.año = d.toLocaleDateString('es', {year: 'numeric'});
 global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true});
 //* ****************************
-global.wm2 = `${dia} ${fecha}\nMysticMOD`;
-global.gt = 'MysticMOD';
-global.mysticbot = 'MysticMOD';
-global.channel = '';
+global.wm2 = `${dia} ${fecha}\nFISH BOT`;
+global.gt = 'FISH BOT';
+global.mysticbot = 'FISH BOT';
+global.channel = 'https://chat.whatsapp.com/CV71h59NQkF5edgnCO4WR6';
 global.md = 'https://github.com/weskerty/TheMysticMOD';
 global.mysticbot = 'https://github.com/weskerty/TheMysticMOD';
 global.waitt = '*_[ ⏳ ] Cargando..._*';
